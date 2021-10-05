@@ -52,6 +52,7 @@ class LinkedList():
   
   def remove(self,value):
     i = 0
+    previous_node = None
     current_node = self.head
     while i < self.length:
       if current_node.value == value:
