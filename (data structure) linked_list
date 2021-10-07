@@ -72,7 +72,7 @@ class LinkedList():
       current_node = current_node.next
     print(list)
 
---------------------- TEST ---------------------
+### TEST ###
 
 l = LinkedList()
 l.append(1)
