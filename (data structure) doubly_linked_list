@@ -69,6 +69,19 @@ class LinkedList():
       i += 1
     return print('Value not found!')
   
+    def reverse(self):
+    if self.head.next == None:
+      return self.head
+    first = self.head
+    second = first.next
+    while second:
+      temp = second.next
+      second.next = first
+      first = second
+      second = temp
+    self.head.next = None
+    self.head = first
+    
   def print_list(self):
     list = []
     current_node = self.head
@@ -92,3 +105,5 @@ l.remove(32)
 l.remove(1)
 l.print_list()
 print(l.tail.previous.value)
+l.reverse()
+l.print_list()
