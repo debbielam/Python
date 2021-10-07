@@ -47,7 +47,7 @@ class Stack():
     else:
       self.array.pop()
  
------------TEST-----------
+### TEST ###
 
 test_stack = Stack()
 test_stack.pop()
