@@ -1,0 +1,84 @@
+class Node():
+  def __init__(self,value):
+    self.value = value
+    self.left = None
+    self.right = None
+
+class BinarySearchTree():
+  def __init__(self):
+    self.root = None
+  
+  def insert(self,value):
+    new = Node(value)
+    if self.root == None:
+      self.root = new
+    else:
+      current = self.root
+      while current:
+        if new.value > current.value:
+          if current.right:
+            current = current.right
+          else:
+            current.right = new
+            return
+        if new.value < current.value:
+          if current.left:
+            current = current.left
+          else:
+            current.left = new
+            return
+
+  def lookup(self,value):
+    current = self.root
+    while current:
+      if current.value == value:
+        return True
+      elif value > current.value:
+        current = current.right
+      else:
+        current = current.left
+    return False
+
+  def remove(self,value):
+    current = self.root
+    replacer = None
+    while current:
+      if current.value == value:
+        replacer = current.right
+        while replacer.right:
+          replacer = replacer.right
+        break          
+      elif value > current.value:
+        current = current.right
+      else:
+        current = current.left
+    if replacer != current.right:
+      current = replacer
+    else:
+      current = replacer
+      current.right == None 
+  
+  def printt(self,curr_node):
+    if curr_node != None:
+      self.printt(curr_node.left)
+      print(str(curr_node.value))
+      self.printt(curr_node.right)
+
+  def print_tree(self):
+    if self.root != None:
+      self.printt(self.root)
+#Inorder Traversal (We get sorted order of elements in tree)
+
+### TEST ###
+
+test_tree = BinarySearchTree()
+print(test_tree.lookup(8))
+test_tree.insert(10)
+test_tree.insert(5)
+test_tree.insert(6)
+test_tree.insert(12)
+test_tree.insert(8)
+print(test_tree.root.value)
+print(test_tree.lookup(8))
+print(test_tree.lookup(12))
+test_tree.print_tree()
