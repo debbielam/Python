@@ -1,0 +1,44 @@
+class Graph:
+
+  def __init__(self):
+    self.number_of_nodes = 0
+    self.adjacent_list = {}
+
+  def addVertex(self,node):
+    self.adjacent_list[node] = []
+    self.number_of_nodes += 1
+
+  def addEdge(self,node1, node2):
+    self.adjacent_list[node1].append(node2)
+    self.adjacent_list[node2].append(node1)
+  
+  def __str__(self):
+    return str(self.__dict__)
+  
+  def showconnection(self):
+    for x in self.adjacent_list:
+      print(x , end = ' --> ')
+      for i in self.adjacent_list[x]:
+        print(i , end = ' ') 
+      print()
+
+### TEST ###
+
+test_graph = Graph()
+test_graph.addVertex('0')
+test_graph.addVertex('1')
+test_graph.addVertex('2')
+test_graph.addVertex('3')
+test_graph.addVertex('4')
+test_graph.addVertex('5')
+test_graph.addVertex('6')
+test_graph.addEdge('3', '1')
+test_graph.addEdge('3', '4')
+test_graph.addEdge('4', '2') 
+test_graph.addEdge('4', '5') 
+test_graph.addEdge('1', '2') 
+test_graph.addEdge('1', '0') 
+test_graph.addEdge('0', '2') 
+test_graph.addEdge('6', '5')
+print(test_graph)
+test_graph.showconnection()
