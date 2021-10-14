@@ -1,3 +1,5 @@
+numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
+
 #Bubble sort
 
 def bubbleSort(array):
@@ -10,6 +12,19 @@ def bubbleSort(array):
         array[i+1] = temp
 
   return array      
+  
+#Seclection Sort
 
-numbers = [5,9,1,2,7,3,8,2]
+def selectionSort(array):
+  sorted_array = []
+  for i in range(len(array)):
+    min = array[0]
+    for j in range(len(array)):
+      if array[j] < min:
+        min = array[j]
+    new_array.append(min)
+    array.pop(array.index(min))
+  return sorted_array
+
+print(selectionSort(numbers))
 print(bubbleSort(numbers))
