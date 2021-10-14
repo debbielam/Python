@@ -26,5 +26,18 @@ def selectionSort(array):
     array[i], array[index] = array[index], array[i]
   return array
 
+#Insertion Sort
+
+def insertionSort(array):
+  for i in range(len(array)):
+    if array[i] < array[0]:
+      array.insert(0, array.pop(i))
+    else:
+      for j in range(len(array)):
+        if array[i] > array[j-1] and array[i] < array[j]:
+          array.insert(j, array.pop(i))
+  return array
+
+print(insertionSort(numbers))
 print(selectionSort(numbers))
 print(bubbleSort(numbers))
