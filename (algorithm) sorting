@@ -16,15 +16,15 @@ def bubbleSort(array):
 #Seclection Sort
 
 def selectionSort(array):
-  sorted_array = []
   for i in range(len(array)):
-    min = array[0]
-    for j in range(len(array)):
+    min = array[i]
+    index = i
+    for j in range(i+1,len(array)):
       if array[j] < min:
         min = array[j]
-    new_array.append(min)
-    array.pop(array.index(min))
-  return sorted_array
+        index = j
+    array[i], array[index] = array[index], array[i]
+  return array
 
 print(selectionSort(numbers))
 print(bubbleSort(numbers))
