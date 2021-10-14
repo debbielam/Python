@@ -1,0 +1,15 @@
+#Bubble sort
+
+def bubbleSort(array):
+  temp = 0
+  for j in range (len(array)-1):
+    for i in range (len(array)-1):
+      temp = array[i]
+      if array[i] > array [i+1]:
+        array[i] = array[i+1]
+        array[i+1] = temp
+
+  return array      
+
+numbers = [5,9,1,2,7,3,8,2]
+print(bubbleSort(numbers))
